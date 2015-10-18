@@ -8,13 +8,16 @@
     config.$inject = ["$stateProvider", "$locationProvider"];
 
     function config($stateProvider, $locationProvider) {
-        $stateProvider.state("login", {
+        $stateProvider.state("frontend-form", {
+            url: "/form",
+            templateUrl: "/partials/frontend-form.html"
+        }).state("login", {
             url: "/login",
             templateUrl: "/partials/login.html"
         }).state("otherwise", {
             url: "*path",
             controller: ["$state", "$stateParams", function ($state, $stateParams) {
-                $state.go("login");
+                $state.go("frontend-form");
             }]
         });
 
