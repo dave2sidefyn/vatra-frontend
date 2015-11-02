@@ -8,10 +8,13 @@
  * Controller of the vaTraApp
  */
 angular.module('vaTraApp')
-  .controller('AlgosCtrl', function () {
+  .controller('AlgosCtrl', function ($scope, UserService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+
+    $scope.users = UserService.query();
+
   });
