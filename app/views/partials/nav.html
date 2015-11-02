@@ -1,7 +1,5 @@
-<ul class="nav nav-pills nav-stacked">
-  <li class="active"><a href="#/schema">Schema</a></li>
-  <li><a href="#/security">Sicherheit</a></li>
-  <li><a href="#/algos">Algorithmen</a></li>
-  <li><a href="#/stats">Statistiken</a></li>
-  <li><a href="#/api">API</a></li>
+<ul class="nav nav-pills nav-stacked" ng-controller="NavigationCtrl">
+    <li ng-repeat="item in items" ng-class="{active: isActive(item.link)}">
+        <a href="#/{{ item.link }}">{{ item.name }}</a>
+    </li>
 </ul>

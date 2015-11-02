@@ -1,5 +1,6 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
+@import "font-awesome/scss/font-awesome.scss";
 // endbower
 
 * {
@@ -54,13 +55,13 @@ html, body, .view-container {
 }
 
 /* Animations */
-.ng-leave {
-  opacity: 0;
-}
-
-.ng-enter {
-  animation: fadeIn 2s;
-}
+//.ng-leave {
+//  opacity: 0;
+//}
+//
+//.ng-enter {
+//  animation: fadeIn 2s;
+//}
 
 @keyframes fadeIn {
   from {
