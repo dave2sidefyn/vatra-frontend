@@ -2,23 +2,16 @@
 
 /**
  * @ngdoc function
- * @name vaTraApp.controller:LoginCtrl
+ * @name vaTraApp.controller:AlgosCtrl
  * @description
- * # LoginCtrl
+ * # AlgosCtrl
  * Controller of the vaTraApp
  */
 angular.module('vaTraApp')
-  .controller('LoginCtrl', function () {
+  .controller('AlgosCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-
-
-
-    this.submit = function() {
-
-    };
-
   });
