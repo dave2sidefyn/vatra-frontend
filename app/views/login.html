@@ -1,17 +1,38 @@
+<div ng-show="error" class="alert alert-danger">{{error}}</div>
 <div class="container container-table">
-  <form class="form-signin center-me" ng-submit="submit()">
-      <h2 class="form-signin-heading text-center">
-          <i class="fa fa-credit-card"></i> VaTra Login
-      </h2>
-      <label for="inputEmail" class="sr-only">E-Mail-Adresse</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="E-Mail-Adresse" required="" autofocus="">
-      <label for="inputPassword" class="sr-only">Passwort</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Passwort" required="">
-      <div class="checkbox">
-          <label>
-              <input type="checkbox" value="remember-me"> Angemeldet bleiben
-          </label>
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Anmelden</button>
+  <form class="form-signin center-me" ng-submit="userlogin()">
+    <h2 class="form-signin-heading text-center">
+      <i class="fa fa-credit-card"></i> VaTra Login
+    </h2>
+    <label for="inputEmail" class="sr-only">E-Mail-Adresse</label>
+    <input type="email" id="inputEmail" name="email" class="form-control" ng-model="credentials.email"
+           placeholder="E-Mail-Adresse"
+           required="" autofocus="">
+    <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Email is required</span>
+    <label for="inputPassword" class="sr-only">Passwort</label>
+    <input type="password" id="inputPassword" name="password" class="form-control" ng-model="credentials.password"
+           placeholder="Passwort" required="">
+    <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+
+    <button class="btn btn-lg btn-primary btn-block" ng-disabled="form.$invalid || dataLoading" type="submit">Anmelden
+    </button>
+    <img ng-if="dataLoading"
+         src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
   </form>
 </div>
+
+<hr/>
+
+<h3>Calling open (non-secured) services</h3>
+<button ng-click="getOpenGreetings()">Get greetings</button> >>> {{greetings.open.getResult}}<br/>
+<input ng-model="greetings.open.postValue"/>
+<button ng-click="postOpenGreetings()">Post greetings</button>
+<br/>
+
+<hr/>
+
+<h3>Calling secure services</h3>
+<button ng-click="getSecureGreetings()">Get secure greetings</button> >>> {{greetings.secure.getResult}}<br/>
+<input ng-model="greetings.secure.postValue"/>
+<button ng-click="postSecureGreetings()">Post secure greetings</button>
+<br/>

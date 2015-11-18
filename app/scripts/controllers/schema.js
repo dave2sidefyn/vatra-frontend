@@ -8,7 +8,7 @@
  * Controller of the vaTraApp
  */
 angular.module('vaTraApp')
-  .controller('SchemaCtrl', function () {
+  .controller('SchemaCtrl', function (JSONEditor) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -34,6 +34,6 @@ angular.module('vaTraApp')
     editor.set(json);
 
     // get json
-    var jsonContent = editor.get();
+    editor.get();
 
   });

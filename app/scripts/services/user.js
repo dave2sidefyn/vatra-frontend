@@ -8,7 +8,6 @@
  * Service in the vaTraApp.
  */
 angular.module('vaTraApp')
-  .service('User', function ($http) {
-    return {
-    }
+  .service('User', function () {
+    return {};
   });
