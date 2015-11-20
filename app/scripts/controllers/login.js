@@ -15,10 +15,6 @@ angular.module('vaTraApp')
         open: {
           getResult: '',
           postValue: 'some value'
-        },
-        secure: {
-          getResult: '',
-          postValue: 'some secure value'
         }
       };
 
@@ -52,6 +48,7 @@ angular.module('vaTraApp')
         LoginService.login($scope.credentials.email, $scope.credentials.password, function (data, status, headers, config) {
           // Success handler
           console.info('The user has been successfully logged in! ', data, status, headers, config);
+          $location.url('/dashboard');
 
         }, function (data, status, headers, config) {
           // Failure handler
@@ -60,10 +57,10 @@ angular.module('vaTraApp')
       };
 
       $scope.userlogout = function () {
-        LoginService.logout(function (data, status, headers, config) {
+        LoginService.logout(function () {
           // Success handler
           $scope.credentials = {email: '', password: ''};
-          delete $cookies['JSESSIONID'];
+          delete $cookies.JSESSIONID;
           console.info('The user has been logged out!');
 
           $location.url('/');
@@ -74,50 +71,16 @@ angular.module('vaTraApp')
         });
       };
 
-      var secureResources = function (headers) {
-        if (headers !== undefined) {
-          return $resource('http://localhost:8080/rest/secure', {}, {
-            post: {method: 'POST', headers: headers, isArray: false}
-          });
-        } else {
-          return $resource('http://localhost:8080/rest/secure', {}, {
-            get: {method: 'GET', cache: false, isArray: false},
-            options: {method: 'OPTIONS', cache: false}
-          });
-        }
-      };
 
-      $scope.getSecureGreetings = function () {
-        $scope.greetings.secure.getResult = '';
+      LoginService.logout(function () {
+        // Success handler
+        $scope.credentials = {email: '', password: ''};
+        delete $cookies.JSESSIONID;
+        console.info('The user has been logged out!');
 
-        secureResources().get().$promise.then(function (response) {
-          console.log('GET /rest/secure returned: ', response);
-          $scope.greetings.secure.getResult = response.greetings;
+      }, function (data, status, headers, config) {
+        // Failure handler
+        console.error('Something went wrong while trying to logout... ', data, status, headers, config);
+      });
 
-        }).catch(function (response) {
-          handleError(response);
-        });
-      };
-
-      $scope.postSecureGreetings = function () {
-        CsrfService.addResourcesCsrfToHeaders(secureResources().options, $http.defaults.headers.post).then(function (headers) {
-          secureResources(headers).post({greetings: $scope.greetings.secure.postValue}).$promise.then(function (response) {
-            console.log('POST /rest/secure returned: ', response);
-            console.info('You might want to check the server logs to see that the POST has been handled!');
-
-          }).catch(function (response) {
-            handleError(response);
-          });
-        });
-      };
-
-      var handleError = function (response) {
-
-        if (response.status === 401) {
-          console.error('You need to login first!');
-
-        } else {
-          console.error('Something went wrong...', response);
-        }
-      };
     });

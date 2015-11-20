@@ -78,7 +78,7 @@ angular.module('vaTraApp').factory('LoginService', function ($http, $resource, C
         headers[$http.defaults.xsrfHeaderName] = csrfToken;
 
         // Post the credentials for logging out
-        $http.post('http://localhost:8081/logout', '', {
+        $http.post('http://localhost:8080/logout', '', {
             headers: headers
           })
           .success(successHandler)
