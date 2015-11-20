@@ -1,5 +1,21 @@
-<p>This is the dashboard view.</p>
+<ng-include src="'views/partials/header.html'"></ng-include>
 
-<div data-ng-repeat="app in apps">
-  test: {{app.name}}
+<div class="container-fluid main-container">
+  <div class="col-md-2 sidebar">
+    <ng-include src="'views/partials/nav.html'"></ng-include>
+  </div>
+
+
+  <div class="col-md-10 content">
+    <p>This is the dashboard view.</p>
+
+    <div data-ng-repeat="app in apps">
+      test: {{app.name}}
+    </div>
+  </div>
 </div>
+
+
+
+
+

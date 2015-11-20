@@ -8,7 +8,7 @@
  * Controller of the vaTraApp
  */
 angular.module('vaTraApp')
-  .controller('SchemaCtrl', function (JSONEditor) {
+  .controller('SchemaCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
