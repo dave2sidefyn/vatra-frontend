@@ -1,7 +1,12 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+$color-main: #2c3e50;
+
 // bower:scss
 @import "font-awesome/scss/font-awesome.scss";
 // endbower
 
+@import "bootstrap-switch";
+
 @import "general";
 @import "dashboard";
+@import "algorithm";

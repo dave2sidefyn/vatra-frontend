@@ -17,4 +17,8 @@ angular.module('vaTraApp')
 
     $scope.users = UserService.query();
 
+
+    // use jquery switch
+    $(".switch").bootstrapSwitch();
+
   });

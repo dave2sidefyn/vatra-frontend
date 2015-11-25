@@ -9,9 +9,11 @@
  */
 angular.module('vaTraApp')
   .controller('SecurityCtrl', function () {
+
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+    
   });
