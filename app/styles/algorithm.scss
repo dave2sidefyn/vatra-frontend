@@ -12,6 +12,14 @@
   }
 
   .is-available {
-    color: green; 
+    color: green;
+  }
+
+  .bootstrap-switch-handle-on.bootstrap-switch-primary {
+      background: $color-main;
+  }
+  .options {
+    text-align: right;
+    margin-bottom: 2rem; 
   }
 }
