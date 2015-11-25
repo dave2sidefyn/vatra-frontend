@@ -15,17 +15,10 @@ angular.module('vaTraApp')
             'Karma'
         ];
 
-        $scope.greetings = {
-            secure: {
-                getResult: '',
-                postValue: 'some secure value'
-            }
-        };
-
         var appResources = function (headers) {
             if (headers !== undefined) {
                 return $resource('http://localhost:8080/rest/secure/app', {}, {
-                    post: {method: 'POST', headers: headers, isArray: false}
+                    post: {method: 'POST', headers: headers}
                 });
             } else {
                 return $resource('http://localhost:8080/rest/secure/app', {}, {
@@ -37,7 +30,6 @@ angular.module('vaTraApp')
 
 
         var getApps = function () {
-
             appResources().get().$promise.then(function (data) {
                 console.log('GET /rest/secure/app returned: ', data);
                 var apps = [];
@@ -54,19 +46,18 @@ angular.module('vaTraApp')
             });
         };
 
-        getApps();
-
-        $scope.postSecureGreetings = function () {
+        $scope.saveApp = function () {
             CsrfService.addResourcesCsrfToHeaders(appResources().options, $http.defaults.headers.post).then(function (headers) {
-                appResources(headers).post({greetings: $scope.greetings.secure.postValue}).$promise.then(function (response) {
+                appResources(headers).post({name: 'Test App'}).$promise.then(function (response) {
                     console.log('POST /rest/secure returned: ', response);
                     console.info('You might want to check the server logs to see that the POST has been handled!');
-
                 }).catch(function (response) {
                     handleError(response);
                 });
             });
         };
+
+        getApps();
 
         var handleError = function (response) {
             console.error('Something went wrong...', response);
