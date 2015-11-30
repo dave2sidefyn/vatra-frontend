@@ -29,10 +29,10 @@
 
             <div class="form-group">
               <label for="domain">Domain</label>
-              <input type="text" class="form-control" id="domain" placeholder="example.com">
+              <input type="text" class="form-control" id="domain" placeholder="example.com" ng-model="appName">
             </div>
         </div>
-        <div class="panel-footer">  <button type="button" class="btn btn-warning" ng-click="saveApp()">Applikation hinzufügen</button></div>
+        <div class="panel-footer">  <button type="button" class="btn btn-warning" ng-click="saveApp(appName)">Applikation hinzufügen</button></div>
       </div>
     </div>
   </div>
