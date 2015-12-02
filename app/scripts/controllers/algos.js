@@ -8,7 +8,7 @@
  * Controller of the vaTraApp
  */
 angular.module('vaTraApp')
-  .controller('AlgosCtrl', function ($scope, UserService) {
+  .controller('AlgosCtrl', function ($scope, UserService, $) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

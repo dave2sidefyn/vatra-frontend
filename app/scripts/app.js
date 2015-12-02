@@ -39,27 +39,30 @@ angular
         controller: 'DashboardCtrl',
         controllerAs: 'dashboard'
       })
-      .when('/schema', {
+      .when('/app/:appId', {
+        redirectTo: '/app/:appId/schema'
+      })
+      .when('/app/:appId/schema', {
         templateUrl: 'views/schema.html',
         controller: 'SchemaCtrl',
         controllerAs: 'schema'
       })
-      .when('/security', {
+      .when('/app/:appId/security', {
         templateUrl: 'views/security.html',
         controller: 'SecurityCtrl',
         controllerAs: 'security'
       })
-      .when('/algos', {
+      .when('/app/:appId/algos', {
         templateUrl: 'views/algos.html',
         controller: 'AlgosCtrl',
         controllerAs: 'algos'
       })
-      .when('/stats', {
+      .when('/app/:appId/stats', {
         templateUrl: 'views/stats.html',
         controller: 'StatsCtrl',
         controllerAs: 'stats'
       })
-      .when('/api', {
+      .when('/app/:appId/api', {
         templateUrl: 'views/api.html',
         controller: 'ApiCtrl',
         controllerAs: 'api'
@@ -72,7 +75,9 @@ angular
     // Tough luck: the default cookie-to-header mechanism is not working for cross-origin requests!
     $httpProvider.defaults.xsrfCookieName = 'CSRF-TOKEN'; // The name of the cookie sent by the server
     $httpProvider.defaults.xsrfHeaderName = 'X-CSRF-TOKEN'; // The default header name picked up by Spring Security
-  }).factory('authHttpResponseInterceptor', ['$q', '$location', function ($q, $location) {
+    // HTTP interceptors to check auth failures for xhr requests
+    $httpProvider.interceptors.push('authHttpResponseInterceptor');
+  }).factory('authHttpResponseInterceptor', function ($q, $location) {
   return {
     response: function (response) {
       if (response.status === 401) {
@@ -88,7 +93,4 @@ angular
       return $q.reject(rejection);
     }
   };
-}]).config(['$httpProvider', function ($httpProvider) {
-  // HTTP interceptors to check auth failures for xhr requests
-  $httpProvider.interceptors.push('authHttpResponseInterceptor');
-}]);
+});
