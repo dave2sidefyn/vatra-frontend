@@ -35,8 +35,12 @@ angular.module('vaTraApp')
         var apps = [];
         data.forEach(function (record) {
           apps.push({
+            id: record.id,
             name: record.name,
-            id: record.id
+            request: record.request,
+            valid: record.valid,
+            invalid: record.invalid,
+            lastRequest: record.lastRequest
           });
         });
 
