@@ -8,14 +8,14 @@
  * Controller of the vaTraApp
  */
 angular.module('vaTraApp')
-  .controller('AlgosCtrl', function ($scope, UserService, $) {
+  .controller('AlgosCtrl', function ($scope, UserService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
 
-    $scope.users = UserService.query();
+    //$scope.users = UserService.query();
 
 
     // use jquery switch

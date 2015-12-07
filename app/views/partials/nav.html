@@ -1,5 +1,5 @@
 <ul class="nav nav-pills nav-stacked" ng-controller="NavigationCtrl">
     <li ng-repeat="item in items" ng-class="{active: isActive(item.link)}">
-        <a href="#/{{ item.link }}">{{ item.name }}</a>
+        <a href="#/{{ path }}/{{ item.link }}">{{ item.name }}</a>
     </li>
 </ul>
