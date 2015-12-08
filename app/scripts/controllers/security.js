@@ -32,7 +32,7 @@ angular.module('vaTraApp')
             $('#tolerance').text(value);
         });
 
-        $scope.saveTolerance = function () {
+        $scope.updateTolerance = function () {
             CsrfService.addResourcesCsrfToHeaders(securityResources().options, $http.defaults.headers.post).then(function (headers) {
                 securityResources(headers).put({
                     toleranz: parseInt(rangeSlider.noUiSlider.get())
