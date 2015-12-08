@@ -13,6 +13,8 @@
     "bootswatch-dist": "flatly",
     "font-awesome": "fontawesome#~4.4.0",
     "toastr": "~2.1.2",
+    "nouislider": "~8.2.1",
+    "wnumb": "~1.0.2"
   },
   "devDependencies": {
     "angular-mocks": "^1.3.0"
