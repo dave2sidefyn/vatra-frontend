@@ -8,8 +8,9 @@
  * Service in the vaTraApp.
  */
 angular.module('vaTraApp')
-  .service('UserService', function ($resource) {
-    return $resource('http://localhost:8080/user', {
-      query: {method: 'GET', isArray: true}
+    .service('UserService', function ($resource) {
+        return $resource('http://localhost:8080/rest/secure/userinformation', {
+            query: {method: 'GET', isArray: true},
+            options: {method: 'OPTIONS', cache: false}
+        });
     });
-  });

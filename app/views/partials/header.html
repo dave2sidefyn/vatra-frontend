@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-default navbar-static-top" ng-controller="HeaderCtrl">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -9,7 +9,7 @@
 				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="#/dashboard">
-				<strong>VaTra</strong> - example.ch
+				<strong>VaTra</strong> - {{ appName }}
 			</a>
 		</div>
 
@@ -18,16 +18,13 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown ">
 					<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-						info@example.ch
+						{{ email }}
 						<span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li class="dropdown-header">App wechseln</li>
-							<li class=""><a href="#">example2.ch</a></li>
-							<li class=""><a href="#">example3.ch</a></li>
-              <li class="divider"></li>
-							<li><a href="#">Einstellungen</a></li>
+							<li ng-repeat="app in apps"><a href="#/app/{{ app.id }}/schema">{{ app.name }}</a></li>
 							<li class="divider"></li>
-							<li><a href="#">Logout</a></li>
+							<li><a href="#/login">Logout</a></li>
 						</ul>
 					</li>
 				</ul>

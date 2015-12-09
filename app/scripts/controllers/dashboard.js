@@ -31,7 +31,6 @@ angular.module('vaTraApp')
 
         var getApps = function () {
             appResources().get().$promise.then(function (data) {
-                console.log('GET /rest/secure/app returned: ', data);
                 var apps = [];
                 data.forEach(function (record) {
                     apps.push({
@@ -67,8 +66,6 @@ angular.module('vaTraApp')
                 }).$promise.then(function (response) {
                         $scope.appName = '';
                         getApps();
-                        console.log('POST /rest/secure/app returned: ', response);
-                        console.info('You might want to check the server logs to see that the POST has been handled!');
                     }).catch(function (response) {
                         handleError(response);
                     });
