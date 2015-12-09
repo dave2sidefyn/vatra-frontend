@@ -61,8 +61,7 @@ angular.module('vaTraApp')
 
             CsrfService.addResourcesCsrfToHeaders(appResources().options, $http.defaults.headers.post).then(function (headers) {
                 appResources(headers).post({
-                    name: appName,
-                    scheme: ''
+                    name: appName
                 }).$promise.then(function (response) {
                         $scope.appName = '';
                         getApps();
