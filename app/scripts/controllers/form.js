@@ -16,7 +16,7 @@ angular.module('vaTraApp')
         ];
 
         $scope.submit = function () {
-            $http.post("http://vatra-php", $scope.form, {headers : {
+            $http.post("http://form.vatra.kioh.ch", $scope.form, {headers : {
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             }}).success(function(data, status) {
                 if (data == 'true') {
