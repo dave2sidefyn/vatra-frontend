@@ -16,7 +16,9 @@ angular.module('vaTraApp')
         ];
 
         $scope.submit = function () {
-            $http.post("http://vatra-php", $scope.form).success(function(data, status) {
+            $http.post("http://vatra-php", $scope.form, {headers : {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            }}).success(function(data, status) {
                 if (data == 'true') {
                     toastr.info('Erfolgreich');
                 } else {
