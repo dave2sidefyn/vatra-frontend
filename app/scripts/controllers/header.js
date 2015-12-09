@@ -22,7 +22,7 @@ angular.module('vaTraApp')
             if ($routeParams.appId) {
                 var app = $.grep(data[0].apps, function (e) {
                     return e.id == $routeParams.appId;
-                })
+                });
                 $scope.appName = app[0].name;
             } else {
                 $scope.appName = 'Dashboard';

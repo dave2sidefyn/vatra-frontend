@@ -38,20 +38,36 @@ angular.module('vaTraApp')
             }
             CsrfService.addResourcesCsrfToHeaders(whitelabelResources().options, $http.defaults.headers.post).then(function (headers) {
                 whitelabelResources(headers).post(whitelist).$promise.then(function () {
-                        toastr.success('Erfolgreich gespeichert');
-                    }).catch(function (response) {
-                        console.error('Something went wrong...', response);
-                    });
+                    toastr.success('Erfolgreich gespeichert');
+                }).catch(function (response) {
+                    console.error('Something went wrong...', response);
+                });
             });
         };
 
         whitelabelResources().get().$promise.then(function (data) {
             var whitelabels = '';
-            angular.forEach(data, function(whitelabel){
+            angular.forEach(data, function (whitelabel) {
                 whitelabels += whitelabel.name + '\n';
             });
             $scope.whitelabels = whitelabels;
         }).catch(function (response) {
             console.error('Something went wrong...', response);
+        });
+
+        var appResources = function () {
+            return $resource('http://localhost:8080/rest/secure/app', {}, {
+                get: {method: 'GET', cache: false, isArray: true},
+                options: {method: 'OPTIONS', cache: false}
+            });
+        };
+
+        appResources().get().$promise.then(function (data) {
+            var app = $.grep(data, function (e) {
+                return e.id == $routeParams.appId;
+            });
+            $scope.apiKey = app[0].apiKey;
+        }).catch(function (response) {
+            handleError(response);
         });
     });
