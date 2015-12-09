@@ -8,10 +8,10 @@
  * Controller of the vaTraApp
  */
 angular.module('vaTraApp')
-  .controller('ApiCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+    .controller('ApiCtrl', function () {
+        this.awesomeThings = [
+            'HTML5 Boilerplate',
+            'AngularJS',
+            'Karma'
+        ];
+    });

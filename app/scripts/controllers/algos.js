@@ -29,10 +29,10 @@ angular.module('vaTraApp')
                     id: $routeParams.appId,
                     algorithms: algos
                 }).$promise.then(function () {
-                    toastr.success('Erfolgreich gespeichert');
-                }).catch(function (response) {
-                    console.error('Something went wrong...', response);
-                });
+                        toastr.success('Erfolgreich gespeichert');
+                    }).catch(function (response) {
+                        console.error('Something went wrong...', response);
+                    });
             });
         };
 

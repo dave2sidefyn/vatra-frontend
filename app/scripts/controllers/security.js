@@ -37,10 +37,10 @@ angular.module('vaTraApp')
                 securityResources(headers).put({
                     toleranz: parseInt(rangeSlider.noUiSlider.get())
                 }).$promise.then(function () {
-                    toastr.success('Erfolgreich gespeichert');
-                }).catch(function (response) {
-                    console.error('Something went wrong...', response);
-                });
+                        toastr.success('Erfolgreich gespeichert');
+                    }).catch(function (response) {
+                        console.error('Something went wrong...', response);
+                    });
             });
         };
 

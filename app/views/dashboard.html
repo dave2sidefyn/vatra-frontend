@@ -1,43 +1,45 @@
 <ng-include src="'views/partials/header.html'"></ng-include>
 
 <div class="container-fluid main-container dashboard">
-  <div class="row">
-    <div data-ng-repeat="app in apps" class="col-md-3 col-sm-6 col-xs-12 ">
-      <div class="panel panel-default ">
-        <div class="panel-heading">{{app.name}}</div>
-        <div class="panel-body">
-          <dl>
-            <dt>Requests:</dt>
-            <dd>{{app.request}}</dd>
-            <dt>Valid:</dt>
-            <dd>{{app.valid}}</dd>
-            <dt>Invalid:</dt>
-            <dd>{{app.invalid}}</dd>
-          </dl>
-          <p>Letzter Request um {{app.lastRequest | date:'medium'}}</p>
+    <div class="row">
+        <div data-ng-repeat="app in apps" class="col-md-3 col-sm-6 col-xs-12 ">
+            <div class="panel panel-default ">
+                <div class="panel-heading">{{app.name}}</div>
+                <div class="panel-body">
+                    <dl>
+                        <dt>Requests:</dt>
+                        <dd>{{app.request}}</dd>
+                        <dt>Valid:</dt>
+                        <dd>{{app.valid}}</dd>
+                        <dt>Invalid:</dt>
+                        <dd>{{app.invalid}}</dd>
+                    </dl>
+                    <p>Letzter Request um {{app.lastRequest | date:'medium'}}</p>
 
+                </div>
+                <div class="panel-footer">
+                    <button type="button" class="btn btn-primary" ng-click="openApp(app)">Applikation verwalten</button>
+                </div>
+            </div>
         </div>
-        <div class="panel-footer">
-          <button type="button" class="btn btn-primary" ng-click="openApp(app)">Applikation verwalten</button>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="panel panel-default ">
+                <div class="panel-heading">Neue App hinzufügen</div>
+                <div class="panel-body">
+                    <p>Sofort eine neue App mit Vatra verwalten!
+
+                    <div class="form-group">
+                        <label for="domain">Domain</label>
+                        <input type="text" class="form-control" id="domain" placeholder="example.com"
+                               ng-model="appName">
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button type="button" class="btn btn-warning" ng-click="saveApp(appName)">Applikation hinzufügen
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-
-    <div class="col-md-3 col-sm-6 col-xs-12">
-      <div class="panel panel-default ">
-        <div class="panel-heading">Neue App hinzufügen</div>
-        <div class="panel-body">
-          <p>Sofort eine neue App mit Vatra verwalten!
-
-          <div class="form-group">
-            <label for="domain">Domain</label>
-            <input type="text" class="form-control" id="domain" placeholder="example.com" ng-model="appName">
-          </div>
-        </div>
-        <div class="panel-footer">
-          <button type="button" class="btn btn-warning" ng-click="saveApp(appName)">Applikation hinzufügen</button>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
