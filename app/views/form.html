@@ -1,6 +1,6 @@
 <div class="container container-table">
 
-    <form class="form-frontend center-me">
+    <form class="form-frontend center-me" ng-submit="submit()">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">
@@ -23,7 +23,7 @@
 
                             <div class="input-group">
                                 <input type="text" class="form-control" id="amount" name="amount"
-                                       placeholder="10" required autofocus/>
+                                       placeholder="10" ng-model="form.amount" required autofocus/>
                                 <span class="input-group-addon">CHF</span>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
 
                             <div class="input-group">
                                 <input type="text" class="form-control" id="cardNumber" name="cardNumber"
-                                       placeholder="4111 1111 1111 1111" required/>
+                                       placeholder="4111 1111 1111 1111" ng-model="form.cardNumber" required/>
                                 <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                             <label for="cardHolder">Karteninhaber</label>
 
                             <input type="text" class="form-control" id="cardHolder" name="cardHolder"
-                                   placeholder="Max Mustermann" required/>
+                                   placeholder="Max Mustermann" ng-model="form.cardHolder" required/>
                         </div>
                     </div>
                 </div>
@@ -60,12 +60,12 @@
                             <div class="exp-wrapper">
                                 <div class="col-xs-6">
                                     <input type="text" class="form-control" id="expMonth" name="expMonth"
-                                           placeholder="MM"
+                                           placeholder="MM" ng-model="form.expMonth"
                                            required/>
                                 </div>
                                 <div class="col-xs-6">
                                     <input type="text" class="form-control" id="expYear" name="expYear" placeholder="YY"
-                                           required/>
+                                           ng-model="form.expYear" required/>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                         <div class="form-group">
                             <label for="cvCode">CV Code</label>
                             <input type="password" class="form-control" id="cvCode" name="cvCode" placeholder="CVC"
-                                   required/>
+                                   ng-model="form.cvc" required/>
                         </div>
                     </div>
                 </div>
