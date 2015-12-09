@@ -25,10 +25,7 @@ angular.module('vaTraApp')
 
         var updateAlgo = function (algos) {
             CsrfService.addResourcesCsrfToHeaders(algoResources().options, $http.defaults.headers.post).then(function (headers) {
-                algoResources(headers).put({
-                    id: $routeParams.appId,
-                    algorithms: algos
-                }).$promise.then(function () {
+                algoResources(headers).post(algos).$promise.then(function () {
                         toastr.success('Erfolgreich gespeichert');
                     }).catch(function (response) {
                         console.error('Something went wrong...', response);
@@ -39,7 +36,7 @@ angular.module('vaTraApp')
         var algoResources = function (headers) {
             if (headers !== undefined) {
                 return $resource('http://localhost:8080/rest/secure/app/' + $routeParams.appId + '/algorithm', {}, {
-                    put: {method: 'PUT', headers: headers, isArray: false}
+                    post: {method: 'POST', headers: headers, isArray: false}
                 });
             } else {
                 return $resource('http://localhost:8080/rest/secure/app/' + $routeParams.appId + '/algorithm', {}, {

@@ -8,18 +8,38 @@
  * Controller of the vaTraApp
  */
 angular.module('vaTraApp')
-    .controller('StatsCtrl', function ($scope) {
+    .controller('StatsCtrl', function ($scope, $resource, $routeParams) {
         this.awesomeThings = [
             'HTML5 Boilerplate',
             'AngularJS',
             'Karma'
         ];
 
-        // temp stats datas:
-        $scope.statistics = [
-            {'name': 'Requests', 'value': 2001},
-            {'name': 'Gültige Requests', 'value': 201},
-            {'name': 'Ungültige Requests', 'value': 100},
-        ];
+        var requestResources = function () {
+            return $resource('http://localhost:8080/rest/secure/app/' + $routeParams.appId + '/request', {}, {
+                get: {method: 'GET', cache: false, isArray: true},
+                options: {method: 'OPTIONS', cache: false}
+            });
+        };
 
+        requestResources().get().$promise.then(function (data) {
+            var valid = 0;
+            var invalid = 0;
+
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].valid) {
+                    valid++;
+                } else {
+                    invalid++;
+                }
+            }
+
+            $scope.statistics = [
+                {'name': 'Requests', 'value': valid + invalid},
+                {'name': 'Gültige Requests', 'value': valid},
+                {'name': 'Ungültige Requests', 'value': invalid},
+            ];
+        }).catch(function (response) {
+            console.error('Something went wrong...', response);
+        });
     });
