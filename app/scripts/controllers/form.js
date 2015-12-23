@@ -9,20 +9,27 @@
  */
 angular.module('vaTraApp')
     .controller('FormCtrl', function ($scope, $http) {
-        this.awesomeThings = [
-            'HTML5 Boilerplate',
-            'AngularJS',
-            'Karma'
-        ];
+        $scope.form = {};
+        $scope.form.currency = "CHF";
+
+        var savePosition = function(position) {
+            $scope.form.latitude = position.coords.latitude;
+            $scope.form.longitude = position.coords.longitude;
+        };
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(savePosition);
+        }
 
         $scope.submit = function () {
-            $http.post("http://form.vatra.kioh.ch", $scope.form, {headers : {
+            $http.post("http://vatra-php", $scope.form, {headers : {
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             }}).success(function(data, status) {
+                $('#payment-form').hide();
                 if (data == 'true') {
-                    toastr.info('Erfolgreich');
+                    $('#success-message').show();
                 } else {
-                    toastr.error('Fehlgeschlagen');
+                    $('#error-message').show();
                 }
             });
         };
