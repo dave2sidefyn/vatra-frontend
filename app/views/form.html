@@ -36,7 +36,7 @@
 
                             <div class="input-group">
                                 <input type="text" class="form-control" id="cardNumber" name="cardNumber"
-                                       placeholder="4111 1111 1111 1111" ng-model="form.cardNumber" required/>
+                                       placeholder="4111 1111 1111 1111" ng-model="form.creditCardNumber" required/>
                                 <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                             <label for="cardHolder">Karteninhaber</label>
 
                             <input type="text" class="form-control" id="cardHolder" name="cardHolder"
-                                   placeholder="Max Mustermann" ng-model="form.cardHolder" required/>
+                                   placeholder="Max Mustermann" ng-model="form.creditCardHolder" required/>
                         </div>
                     </div>
                 </div>
@@ -60,12 +60,12 @@
                             <div class="exp-wrapper">
                                 <div class="col-xs-6">
                                     <input type="text" class="form-control" id="expMonth" name="expMonth"
-                                           placeholder="MM" ng-model="form.expMonth"
+                                           placeholder="MM" ng-model="form.creditCardExpMonth"
                                            required/>
                                 </div>
                                 <div class="col-xs-6">
                                     <input type="text" class="form-control" id="expYear" name="expYear" placeholder="YY"
-                                           ng-model="form.expYear" required/>
+                                           ng-model="form.creditCardExpYear" required/>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                         <div class="form-group">
                             <label for="cvCode">CV Code</label>
                             <input type="text" class="form-control" id="cvCode" name="cvCode" placeholder="CVC"
-                                   ng-model="form.cvc" required/>
+                                   ng-model="form.creditCardCvc" required/>
                         </div>
                     </div>
                 </div>

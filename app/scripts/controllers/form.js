@@ -13,8 +13,12 @@ angular.module('vaTraApp')
         $scope.form.currency = "CHF";
 
         var savePosition = function(position) {
-            $scope.form.latitude = position.coords.latitude;
-            $scope.form.longitude = position.coords.longitude;
+            $scope.form.latitude = position.coords.latitude.toString();
+            $scope.form.longitude = position.coords.longitude.toString();
+
+            // Longitude and latitude of Silicon Valley (California)
+            //$scope.form.latitude = "37.387474";
+            //$scope.form.longitude = "-122.057543";
         };
 
         if (navigator.geolocation) {
