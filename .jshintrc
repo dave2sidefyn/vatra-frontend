@@ -11,6 +11,11 @@
   "undef": true,
   "unused": true,
   "globals": {
-    "angular": false
+    "angular": false,
+    "JSONEditor": false,
+    "toastr": false,
+    "$": false,
+    "noUiSlider": false,
+    "wNumb": false
   }
 }

@@ -1,0 +1,30 @@
+<ng-include src="'views/partials/header.html'"></ng-include>
+
+<div class="container-fluid main-container">
+    <div class="col-md-2 sidebar">
+        <ng-include src="'views/partials/nav.html'"></ng-include>
+    </div>
+
+    <div class="col-md-10 content algorithm">
+        <h2>Algorithmen</h2>
+
+        <div class="panel panel-default" ng-repeat="algo in algos">
+            <div class="panel-heading">{{ algo.name }}</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-10">
+                        <dl>
+                            <dt>Benötigte Felder im Schema:</dt>
+                            <dd class="is-missing">VaTra.Payment.Sender.*</dd>
+                            <dd class="is-available">VaTra.Payment.Receiver.*</dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-2 options">
+                        <input type="checkbox" class="switch" name="switch" data-id="{{ algo.algorithmId }}"
+                               ng-checked="{{ algo.enabled }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

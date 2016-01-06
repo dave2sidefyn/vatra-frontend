@@ -1,0 +1,25 @@
+.algorithm {
+  dd {
+    display: inline-block;
+  }
+
+  dd + dd:before {
+    content: ", ";
+  }
+
+  .is-missing {
+    color: red;
+  }
+
+  .is-available {
+    color: green;
+  }
+
+  .bootstrap-switch-handle-on.bootstrap-switch-primary {
+      background: #2c3e50;
+  }
+  .options {
+    text-align: right;
+    margin-bottom: 2rem;
+  }
+}

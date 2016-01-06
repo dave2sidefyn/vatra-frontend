@@ -1,0 +1,119 @@
+
+* {
+  border-radius: 0 !important;
+}
+
+html, body, .view-container {
+  height: 100%;
+}
+
+.exp-wrapper > div {
+  padding-left: 0;
+}
+
+.form-signin,
+.form-frontend {
+  width: 435px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin .form-signin-heading {
+  margin-bottom: 20px;
+}
+
+.form-signin .checkbox {
+  font-weight: normal;
+}
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Animations */
+//.ng-leave {
+//  opacity: 0;
+//}
+//
+//.ng-enter {
+//  animation: fadeIn 2s;
+//}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+h1.page-header {
+    margin-top: -5px;
+}
+
+.sidebar {
+    padding-left: 0;
+}
+
+.main-container {
+    background: #FFF;
+    padding-top: 15px;
+    margin-top: -20px;
+}
+
+.footer {
+    width: 100%;
+}
+
+.container-table {
+  display: table;
+  height: 100%;
+
+  .center-me {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+}
+
+.navbar {
+  margin-bottom: 4rem;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+
+.hint {
+  font-style: italic;
+}
+.notes {
+
+  h5 {
+    font-weight: bold;
+  }
+  background-color: #ffffb2;
+}

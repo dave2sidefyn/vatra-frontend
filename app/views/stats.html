@@ -1,0 +1,25 @@
+<ng-include src="'views/partials/header.html'"></ng-include>
+
+<div class="container-fluid main-container">
+    <div class="col-md-2 sidebar">
+        <ng-include src="'views/partials/nav.html'"></ng-include>
+    </div>
+
+    <div class="col-md-10 content">
+        <h2>Statistiken</h2>
+
+        <table class="table table-striped table-hover ">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="data in statistics">
+                <td>{{data.name}}</td>
+                <td>{{data.value}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

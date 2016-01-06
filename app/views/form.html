@@ -1,85 +1,103 @@
-<form class="form-frontend">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">
-                <b>Rechnung</b>
+<div class="container container-table">
 
-                <div class="pull-right">
-                    <i class="fa fa-cc-mastercard"></i>
-                    <i class="fa fa-cc-visa"></i>
-                    <i class="fa fa-cc-amex"></i>
-                    <i class="fa fa-cc-diners-club"></i>
-                    <i class="fa fa-cc-jcb"></i>
+    <form class="form-frontend center-me" id="payment-form" ng-submit="submit()">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <b>Rechnung</b>
+
+                    <div class="pull-right">
+                        <i class="fa fa-cc-mastercard"></i>
+                        <i class="fa fa-cc-visa"></i>
+                        <i class="fa fa-cc-amex"></i>
+                        <i class="fa fa-cc-diners-club"></i>
+                        <i class="fa fa-cc-jcb"></i>
+                    </div>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="cardNumber">Betrag</label>
+
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="amount" name="amount"
+                                       placeholder="10" ng-model="form.amount" required autofocus/>
+                                <span class="input-group-addon">CHF</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="cardNumber">Kartennummer</label>
+
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="cardNumber" name="cardNumber"
+                                       placeholder="4111 1111 1111 1111" ng-model="form.creditCardNumber" required/>
+                                <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="cardHolder">Karteninhaber</label>
+
+                            <input type="text" class="form-control" id="cardHolder" name="cardHolder"
+                                   placeholder="Max Mustermann" ng-model="form.creditCardHolder" required/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-7">
+                        <div class="form-group">
+                            <label for="expMonth">Ablaufdatum</label>
+
+                            <div class="exp-wrapper">
+                                <div class="col-xs-6">
+                                    <input type="text" class="form-control" id="expMonth" name="expMonth"
+                                           placeholder="MM" ng-model="form.creditCardExpMonth"
+                                           required/>
+                                </div>
+                                <div class="col-xs-6">
+                                    <input type="text" class="form-control" id="expYear" name="expYear" placeholder="YY"
+                                           ng-model="form.creditCardExpYear" required/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-5">
+                        <div class="form-group">
+                            <label for="cvCode">CV Code</label>
+                            <input type="text" class="form-control" id="cvCode" name="cvCode" placeholder="CVC"
+                                   ng-model="form.creditCardCvc" required/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-success btn-lg btn-block" type="submit">Kostenpflichtig bezahlen</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="cardNumber">Betrag</label>
+    </form>
 
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="amount" name="amount"
-                                   placeholder="10" required autofocus/>
-                            <span class="input-group-addon">CHF</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="cardNumber">Kartennummer</label>
-
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="cardNumber" name="cardNumber"
-                                   placeholder="4111 1111 1111 1111" required />
-                            <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="cardHolder">Karteninhaber</label>
-
-                        <input type="text" class="form-control" id="cardHolder" name="cardHolder"
-                               placeholder="Max Mustermann" required />
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-7">
-                    <div class="form-group">
-                        <label for="expMonth">Ablaufdatum</label>
-
-                        <div class="exp-wrapper">
-                            <div class="col-xs-6">
-                                <input type="text" class="form-control" id="expMonth" name="expMonth" placeholder="MM"
-                                       required />
-                            </div>
-                            <div class="col-xs-6">
-                                <input type="text" class="form-control" id="expYear" name="expYear" placeholder="YY"
-                                       required />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-5">
-                    <div class="form-group">
-                        <label for="cvCode">CV Code</label>
-                        <input type="password" class="form-control" id="cvCode" name="cvCode" placeholder="CVC"
-                               required />
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <button class="btn btn-success btn-lg btn-block" type="submit">Kostenpflichtig bezahlen</button>
-                </div>
-            </div>
+    <div class="bs-component center-me" id="success-message" style="display: none;">
+        <div class="alert alert-dismissible alert-success">
+            <strong>Zahlung erfolgreich!</strong><br/>
+            Die Rechnung wurde erfolgreich beglichen.
         </div>
     </div>
-</form>
+
+    <div class="bs-component center-me" id="error-message" style="display: none;">
+        <div class="alert alert-dismissible alert-danger">
+            <strong>Zahlung fehlgeschlagen!</strong><br/>
+            Bei der Zahlung ist leider ein Fehler aufgetreten.
+        </div>
+    </div>
+</div>
