@@ -46,17 +46,21 @@ angular.module('vaTraApp')
     };
 
 
-    var apiKeyResources = function () {
-      return $resource('http://localhost:8080/rest/secure/apiKey', {}, {
-        get: {method: 'GET', cache: false, isArray: false},
-        options: {method: 'OPTIONS', cache: false}
-      });
+    var apiKeyResources = function (headers) {
+      if (headers !== undefined) {
+        return $resource('http://localhost:8080/rest/secure/app/' + $routeParams.appId + '/apiKey', {}, {
+          post: {method: 'POST', headers: headers, isArray: false}
+        });
+      } else {
+        return $resource('http://localhost:8080/rest/secure/app/' + $routeParams.appId + '/apiKey', {}, {
+          options: {method: 'OPTIONS', cache: false}
+        });
+      }
     };
 
     $scope.newApiKey = function () {
-
       CsrfService.addResourcesCsrfToHeaders(apiKeyResources().options, $http.defaults.headers.post).then(function (headers) {
-        appResources(headers).post({
+        apiKeyResources(headers).post({
           id: $routeParams.appId
         }).$promise.then(function (response) {
           $scope.apiKey = response.apiKey;
