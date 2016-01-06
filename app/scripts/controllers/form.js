@@ -28,9 +28,9 @@ angular.module('vaTraApp')
         $scope.submit = function () {
             $http.post("http://vatra-php", $scope.form, {headers : {
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            }}).success(function(data, status) {
+            }}).success(function(data) {
                 $('#payment-form').hide();
-                if (data == 'true') {
+                if (data === 'true') {
                     $('#success-message').show();
                 } else {
                     $('#error-message').show();
