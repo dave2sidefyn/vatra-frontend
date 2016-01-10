@@ -6,6 +6,7 @@ header('Access-Control-Allow-Credentials: true');
 $_POST = json_decode(file_get_contents('php://input'), true);
 $_POST['apiKey'] = 'd33i7sn7gj62t4mdptsfe1pclt';
 $_POST['identification'] = 'ABC123456';
+$_POST['honeypot'] = '1';
 
 $curl = curl_init();
 

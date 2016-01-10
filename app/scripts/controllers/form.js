@@ -10,15 +10,19 @@
 angular.module('vaTraApp')
     .controller('FormCtrl', function ($scope, $http) {
         $scope.form = {};
-        $scope.form.currency = "CHF";
+        $scope.currencies = [
+            {id: "CHF", name: "CHF"},
+            {id: "EUR", name: "EUR"},
+            {id: "USD", name: "USD"}
+        ];
 
         var savePosition = function(position) {
             $scope.form.latitude = position.coords.latitude.toString();
             $scope.form.longitude = position.coords.longitude.toString();
 
-            // Longitude and latitude of Silicon Valley (California)
-            //$scope.form.latitude = "37.387474";
-            //$scope.form.longitude = "-122.057543";
+            // Longitude and latitude of Amsterdam
+            //$scope.form.latitude = "52.370216";
+            //$scope.form.longitude = "4.895168";
         };
 
         if (navigator.geolocation) {
