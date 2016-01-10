@@ -26,10 +26,11 @@ angular.module('vaTraApp')
         var updateAlgo = function (algos) {
             CsrfService.addResourcesCsrfToHeaders(algoResources().options, $http.defaults.headers.post).then(function (headers) {
                 algoResources(headers).post(algos).$promise.then(function () {
-                        toastr.success('Erfolgreich gespeichert');
-                    }).catch(function (response) {
-                        console.error('Something went wrong...', response);
-                    });
+                    toastr.remove();
+                    toastr.success('Erfolgreich gespeichert');
+                }).catch(function (response) {
+                    console.error('Something went wrong...', response);
+                });
             });
         };
 
