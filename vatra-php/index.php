@@ -4,8 +4,8 @@ header('Access-Control-Allow-Origin: http://localhost:9000');
 header('Access-Control-Allow-Credentials: true');
 
 $_POST = json_decode(file_get_contents('php://input'), true);
-$_POST['apiKey'] = 'd33i7sn7gj62t4mdptsfe1pclt';
-$_POST['identification'] = 'ABC123456';
+$_POST['VaTra.ApiKey'] = 'd33i7sn7gj62t4mdptsfe1pclt';
+$_POST['VaTra.Identification'] = 'ABC123456';
 
 $curl = curl_init();
 

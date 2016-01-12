@@ -23,9 +23,9 @@ angular.module('vaTraApp')
 
     $scope.updateSchema = function () {
       CsrfService.addResourcesCsrfToHeaders(schemaResources().options, $http.defaults.headers.post).then(function (headers) {
-        schemaResources(headers).put({
-          schema: editor.get()
-        }).$promise.then(function () {
+        schemaResources(headers).put(
+          JSON.stringify(editor.get())
+        ).$promise.then(function () {
           toastr.success('Erfolgreich gespeichert');
         }).catch(function (response) {
           console.error('Something went wrong...', response);
@@ -50,7 +50,7 @@ angular.module('vaTraApp')
       console.log(data[0]);
 
       if (data[0] !== "") {
-        editor.set(JSON.parse(data[0]).schema);
+        editor.set(JSON.parse(data[0]));
       }
 
     }).catch(function (response) {
