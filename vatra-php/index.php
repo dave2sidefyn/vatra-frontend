@@ -6,7 +6,7 @@ header('Access-Control-Allow-Credentials: true');
 $_POST = json_decode(file_get_contents('php://input'), true);
 $_POST['VaTra.ApiKey'] = 'd33i7sn7gj62t4mdptsfe1pclt';
 $_POST['VaTra.Identification'] = 'ABC123456';
-$_POST['VaTra.honeypot'] = '1';
+$_POST['VaTra.Honeypot'] = '';
 
 $curl = curl_init();
 
