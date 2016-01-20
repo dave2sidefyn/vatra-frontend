@@ -5,7 +5,10 @@
  * @name vaTraApp.controller:FormCtrl
  * @description
  * # FormCtrl
- * Controller of the vaTraApp
+ *
+ * Communication with the web server.
+ * Sends the payment form to the PHP web server.
+ * Shows the success page if the payment was successful, otherwise the error page.
  */
 angular.module('vaTraApp')
     .controller('FormCtrl', function ($scope, $http) {

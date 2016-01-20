@@ -5,7 +5,9 @@
  * @name vaTraApp.controller:DashboardCtrl
  * @description
  * # DashboardCtrl
- * Controller of the vaTraApp
+ *
+ * Loads all the applications of the current logged in user.
+ * Offers possibility to add new VaTra applications.
  */
 angular.module('vaTraApp')
     .controller('DashboardCtrl', function ($resource, $scope, CsrfService, $http, $location) {

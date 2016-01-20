@@ -7,6 +7,8 @@
  * # vaTraApp
  *
  * Main module of the application.
+ * Loads all necessary modules and the authentication factory.
+ * Makes the routing for the VaTra application.
  */
 angular
     .module('vaTraApp', [

@@ -5,7 +5,9 @@
  * @name vaTraApp.controller:ApiCtrl
  * @description
  * # ApiCtrl
- * Controller of the vaTraApp
+ *
+ * This controller loads the whitelist and API key of the current application.
+ * Offers possibility to change the whitelist and to update the API key.
  */
 angular.module('vaTraApp')
   .controller('ApiCtrl', function ($scope, $resource, $routeParams, CsrfService, $http) {

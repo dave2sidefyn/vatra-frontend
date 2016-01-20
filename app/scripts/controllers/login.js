@@ -5,7 +5,8 @@
  * @name vaTraApp.controller:LoginCtrl
  * @description
  * # LoginCtrl
- * Controller of the vaTraApp
+ *
+ * Offers login and logout functionality.
  */
 angular.module('vaTraApp')
     .controller('LoginCtrl',

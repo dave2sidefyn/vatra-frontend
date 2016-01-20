@@ -5,7 +5,9 @@
  * @name vaTraApp.controller:SchemaCtrl
  * @description
  * # SchemaCtrl
- * Controller of the vaTraApp
+ *
+ * Loads the JSON data of the current scheme.
+ * Update possibility for the scheme.
  */
 angular.module('vaTraApp')
   .controller('SchemaCtrl', function ($scope, $routeParams, $resource, CsrfService, $http) {

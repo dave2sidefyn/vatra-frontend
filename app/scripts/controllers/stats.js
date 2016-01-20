@@ -5,7 +5,8 @@
  * @name vaTraApp.controller:StatsCtrl
  * @description
  * # StatsCtrl
- * Controller of the vaTraApp
+ *
+ * Shows the statistics of all the transactions.
  */
 angular.module('vaTraApp')
     .controller('StatsCtrl', function ($scope, $resource, $routeParams) {

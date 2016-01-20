@@ -5,7 +5,9 @@
  * @name vaTraApp.controller:NavigationCtrl
  * @description
  * # NavigationCtrl
- * Controller of the vaTraApp
+ *
+ * Loads the backend navigation.
+ * Offers function to check whether the navigation point is active or inactive.
  */
 angular.module('vaTraApp')
     .controller('NavigationCtrl', function ($scope, $location) {

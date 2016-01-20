@@ -5,7 +5,8 @@
  * @name vaTraApp.controller:HeaderCtrl
  * @description
  * # HeaderCtrl
- * Controller of the vaTraApp
+ *
+ * Loads the current logged in user information and all the application names of this user.
  */
 angular.module('vaTraApp')
     .controller('HeaderCtrl', function (UserService, $scope, $routeParams) {

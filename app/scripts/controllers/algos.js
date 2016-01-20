@@ -5,7 +5,8 @@
  * @name vaTraApp.controller:AlgosCtrl
  * @description
  * # AlgosCtrl
- * Controller of the vaTraApp
+ *
+ * This controller can enable and disable the algorithms of the current application.
  */
 angular.module('vaTraApp')
     .controller('AlgosCtrl', function ($scope, $resource, CsrfService, $routeParams, $timeout, $http) {

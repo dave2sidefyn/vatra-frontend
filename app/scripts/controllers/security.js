@@ -5,7 +5,9 @@
  * @name vaTraApp.controller:SecurityCtrl
  * @description
  * # SecurityCtrl
- * Controller of the vaTraApp
+ *
+ * Loads the current value of the algorithm tolerance.
+ * Can update the algorithm tolerance.
  */
 angular.module('vaTraApp')
     .controller('SecurityCtrl', function ($scope, $routeParams, $resource, CsrfService, $http) {
