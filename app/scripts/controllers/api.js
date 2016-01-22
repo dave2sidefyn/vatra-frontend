@@ -24,7 +24,7 @@ angular.module('vaTraApp')
         });
       } else {
         return $resource('http://localhost:8080/rest/secure/app/' + $routeParams.appId + '/whitelabel', {}, {
-          get: {method: 'GET', cache: false, isArray: true},
+          get: {method: 'GET', cache: false, isArray: false},
           options: {method: 'OPTIONS', cache: false}
         });
       }
@@ -72,12 +72,8 @@ angular.module('vaTraApp')
       });
     };
 
-    whitelabelResources().get().$promise.then(function (data) {
-      var whitelabels = '';
-      angular.forEach(data, function (whitelabel) {
-        whitelabels += whitelabel.name + '\n';
-      });
-      $scope.whitelabels = whitelabels;
+    whitelabelResources().get().$promise.then(function (whitelabel) {
+      $scope.whitelabels = whitelabel.name;
     }).catch(function (response) {
       console.error('Something went wrong..', response);
     });
