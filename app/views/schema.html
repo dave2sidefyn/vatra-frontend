@@ -1,44 +1,52 @@
 <ng-include src="'views/partials/header.html'"></ng-include>
 
 <div class="container-fluid main-container">
-    <div class="col-md-2 sidebar">
-        <ng-include src="'views/partials/nav.html'"></ng-include>
+  <div class="col-md-2 sidebar">
+    <ng-include src="'views/partials/nav.html'"></ng-include>
+  </div>
+
+
+  <div class="col-md-7 content">
+    <h2>Schema</h2>
+
+    <p>Beschreiben Sie Ihr Formular!</p>
+
+    <div id="jsoneditor">
     </div>
 
+    <button type="button" class="btn btn-primary margin-top-15" ng-click="updateSchema()">Speichern</button>
+  </div>
 
-    <div class="col-md-7 content">
-        <h2>Schema</h2>
+  <div class="col-md-3 notes">
+    <h4>Dokumentation</h4>
+    <h5>Zwingende Felder</h5>
+    <ul>
+      <li>VaTra.Identification</li>
+      <li>VaTra.ApiKey</li>
+    </ul>
+    <h5>Regex Funktionen</h5>
+    <ul>
+      <li>VaTra.Regex.email</li>
+      <li>VaTra.Regex.URL</li>
+    </ul>
 
-        <p>Beschreiben Sie Ihr Formular!</p>
+    <h5>Vordefinierte Felder</h5>
 
-        <div id="jsoneditor">
-        </div>
+    <p class="hint">(Je mehr Sie in Ihr Formular integrieren, dessto mehr VaTra Sicherheitsalgorithmen können Sie
+      verwenden.)</p>
+    <ul>
+      <li>VaTra.Honeypot</li>
+      <li>VaTra.Payment.Amount</li>
+      <li>VaTra.Payment.Currency</li>
+      <li>VaTra.Payment.CreditCardNumber</li>
+      <li>VaTra.Payment.CreditCardHolder</li>
+      <li>VaTra.Payment.CreditCardExpMonth</li>
+      <li>VaTra.Payment.CreditCardExpYear</li>
+      <li>VaTra.Payment.CreditCardCvc</li>
+      <li>VaTra.Geolocation.longitude</li>
+      <li>VaTra.Geolocation.latitude</li>
+    </ul>
 
-        <button type="button" class="btn btn-primary margin-top-15" ng-click="updateSchema()">Speichern</button>
-    </div>
-
-    <div class="col-md-3 notes">
-        <h4>Dokumentation</h4>
-        <h5>Regex Funktionen</h5>
-        <ul>
-            <li>VaTra.Regex.email</li>
-            <li>VaTra.Regex.URL</li>
-            <li>..</li>
-        </ul>
-
-        <h5>Vordefinierte Felder</h5>
-
-        <p class="hint">(Je mehr Sie in Ihr Formular integrieren, dessto mehr VaTra Sicherheitsalgorithmen können Sie
-            verwenden.)</p>
-        <ul>
-            <li>VaTra.Payment.Receiver.IBAN</li>
-            <li>VaTra.Payment.Receiver.Firstname</li>
-            <li>VaTra.Payment.Receiver.Lastname</li>
-            <li>VaTra.Payment.Sender.Firstname</li>
-            <li>VaTra.Payment.Sender.Lastname</li>
-            <li>VaTra.Payment.Sender.Creditcart</li>
-        </ul>
-
-    </div>
+  </div>
 
 </div>
