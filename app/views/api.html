@@ -12,7 +12,7 @@
             <label for="whitelist">Erlaubte Zugriffe</label>
 
             <p>Pro Zeile Domain/IP von welcher die Request gültig sind.</p>
-            <textarea class="form-control" id="whitelist" rows="6">{{ whitelabels }}</textarea>
+            <textarea class="form-control" id="whitelist" rows="6">{{ whitelist }}</textarea>
         </div>
         <button type="button" class="btn btn-primary" ng-click="saveWhitelist()">Speichern</button>
         <br /><br />
@@ -23,7 +23,7 @@
 
         <div class="form-group">
             <button type="reset" class="btn btn-primary">Kopieren</button>
-            <button type="button" class="btn btn-default" ng-click="newApiKey()">Neuer API Key generieren</button>
+            <button type="button" class="btn btn-primary" ng-click="newApiKey()">Neuer API Key generieren</button>
         </div>
     </div>
 </div>

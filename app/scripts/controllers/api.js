@@ -17,13 +17,13 @@ angular.module('vaTraApp')
       'Karma'
     ];
 
-    var whitelabelResources = function (headers) {
+    var whitelistResources = function (headers) {
       if (headers !== undefined) {
-        return $resource('http://localhost:8080/rest/secure/app/' + $routeParams.appId + '/whitelabel', {}, {
+        return $resource('http://localhost:8080/rest/secure/app/' + $routeParams.appId + '/whitelistlabel', {}, {
           post: {method: 'POST', headers: headers, isArray: false}
         });
       } else {
-        return $resource('http://localhost:8080/rest/secure/app/' + $routeParams.appId + '/whitelabel', {}, {
+        return $resource('http://localhost:8080/rest/secure/app/' + $routeParams.appId + '/whitelistlabel', {}, {
           get: {method: 'GET', cache: false, isArray: true},
           options: {method: 'OPTIONS', cache: false}
         });
@@ -38,8 +38,8 @@ angular.module('vaTraApp')
           name: arr[i]
         });
       }
-      CsrfService.addResourcesCsrfToHeaders(whitelabelResources().options, $http.defaults.headers.post).then(function (headers) {
-        whitelabelResources(headers).post(whitelist).$promise.then(function () {
+      CsrfService.addResourcesCsrfToHeaders(whitelistResources().options, $http.defaults.headers.post).then(function (headers) {
+        whitelistResources(headers).post(whitelist).$promise.then(function () {
           toastr.success('Erfolgreich gespeichert');
         }).catch(function (response) {
           console.error('Something went wrong...', response);
@@ -72,12 +72,12 @@ angular.module('vaTraApp')
       });
     };
 
-    whitelabelResources().get().$promise.then(function (data) {
-      var whitelabels = '';
-      angular.forEach(data, function (whitelabel) {
-        whitelabels += whitelabel.name + '\n';
+    whitelistResources().get().$promise.then(function (data) {
+      var whitelist = '';
+      angular.forEach(data, function (whitelistlabel) {
+        whitelist += whitelistlabel.name + '\n';
       });
-      $scope.whitelabels = whitelabels;
+      $scope.whitelist = whitelist;
     }).catch(function (response) {
       console.error('Something went wrong..', response);
     });
