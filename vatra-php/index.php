@@ -7,6 +7,9 @@ $_POST = json_decode(file_get_contents('php://input'), true);
 $_POST['VaTra.ApiKey'] = '50d4d6ea-b126-48b6-81ab-7880b45a774c';
 $_POST['VaTra.Identification'] = $_POST['creditCardNumber'];
 $_POST['VaTra.Honeypot'] = '';
+//Zürich
+$_POST['latitude'] = '47.3858401';
+$_POST['longitude'] = '8.496481';
 
 $curl = curl_init();
 
